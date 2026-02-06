@@ -1,9 +1,12 @@
 import { Button } from "@/components/ui/button";
-import logoMain from "@/assets/logo-new.png";
+import logoFallback from "@/assets/logo-new.png";
+
+const logoSrc = import.meta.env.VITE_LOGO_URL || logoFallback;
+
 const Hero = () => {
   return <section className="bg-gradient-to-b from-card to-background pt-6 pb-12 md:pb-16 text-center animate-fade-in-up">
       <div className="container">
-        <img src={logoMain} alt="Checkup Financeiro" className="h-36 md:h-48 w-auto mx-auto mb-6" />
+        <img src={logoSrc} alt="Checkup Financeiro" className="h-36 md:h-48 w-auto mx-auto mb-6" />
         
         
         

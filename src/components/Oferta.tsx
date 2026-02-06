@@ -1,4 +1,8 @@
-import logoMain from "@/assets/logo-new.png";
+import logoFallback from "@/assets/logo-new.png";
+
+const logoSrc = import.meta.env.VITE_LOGO_URL || logoFallback;
+const checkoutUrl = import.meta.env.VITE_CHECKOUT_URL || "https://payfast.greenn.com.br/d542hpu";
+
 const Oferta = () => {
   return <section id="oferta" className="py-12 md:py-16 bg-primary animate-fade-in-up">
       <div className="container">
@@ -56,7 +60,7 @@ const Oferta = () => {
               <div className="relative w-48 h-64 md:w-56 md:h-72 bg-primary-foreground rounded shadow-xl p-4 flex flex-col">
                 {/* Document header */}
                 <div className="flex items-center justify-center mb-3">
-                  <img src={logoMain} alt="Checkup Financeiro" className="w-20 md:w-24 h-auto" />
+                  <img src={logoSrc} alt="Checkup Financeiro" className="w-20 md:w-24 h-auto" />
                 </div>
                 {/* Document title */}
                 <div className="text-center mb-3">
@@ -107,7 +111,7 @@ const Oferta = () => {
             Avaliação individual, personalizada, com análise real dos seus dados.
           </p>
           
-          <a href="https://payfast.greenn.com.br/d542hpu" className="inline-flex flex-col sm:flex-row items-center justify-center gap-1 bg-accent text-accent-foreground hover:bg-accent-light shadow-lg shadow-accent/25 hover:shadow-xl hover:shadow-accent/30 hover:-translate-y-0.5 min-h-14 px-6 py-4 text-base font-semibold rounded-lg transition-all duration-200 w-full sm:w-auto">
+          <a href={checkoutUrl} className="inline-flex flex-col sm:flex-row items-center justify-center gap-1 bg-accent text-accent-foreground hover:bg-accent-light shadow-lg shadow-accent/25 hover:shadow-xl hover:shadow-accent/30 hover:-translate-y-0.5 min-h-14 px-6 py-4 text-base font-semibold rounded-lg transition-all duration-200 w-full sm:w-auto">
             <span>QUERO FAZER MEU</span>
             <span>DIAGNÓSTICO FINANCEIRO!</span>
           </a>

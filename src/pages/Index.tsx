@@ -7,10 +7,12 @@ import Produto from "@/components/Produto";
 import Aviso from "@/components/Aviso";
 import Oferta from "@/components/Oferta";
 import Footer from "@/components/Footer";
+import PixelScripts from "@/components/PixelScripts";
 
 const Index = () => {
   return (
     <div className="min-h-screen bg-background pt-10">
+      <PixelScripts />
       <CountdownBar />
       <Header />
       <main>
