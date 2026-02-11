@@ -3,7 +3,6 @@ import { useEffect } from "react";
 const PixelScripts = () => {
   useEffect(() => {
     const fbPixelId = import.meta.env.VITE_FB_PIXEL_ID;
-    const utmifyPixelId = import.meta.env.VITE_UTMIFY_PIXEL_ID;
 
     // Facebook Pixel - so injeta se ainda nao existe
     if (fbPixelId && !(window as any).fbq) {
@@ -31,30 +30,6 @@ const PixelScripts = () => {
       img.src = `https://www.facebook.com/tr?id=${fbPixelId}&ev=PageView&noscript=1`;
       noscript.appendChild(img);
       document.body.appendChild(noscript);
-    }
-
-    // Utmify Pixel - so injeta se ainda nao existe
-    if (utmifyPixelId && !(window as any).pixelId) {
-      const utmifyScript = document.createElement("script");
-      utmifyScript.innerHTML = `window.pixelId = "${utmifyPixelId}";`;
-      document.head.appendChild(utmifyScript);
-
-      const utmifyLoader = document.createElement("script");
-      utmifyLoader.async = true;
-      utmifyLoader.defer = true;
-      utmifyLoader.src = "https://cdn.utmify.com.br/scripts/pixel/pixel.js";
-      document.head.appendChild(utmifyLoader);
-    }
-
-    // Utmify Capture Script (fixo) - so injeta se ainda nao existe
-    if (!document.querySelector('script[src*="utmify.com.br/scripts/utms"]')) {
-    const captureScript = document.createElement("script");
-    captureScript.src = "https://cdn.utmify.com.br/scripts/utms/latest.js";
-    captureScript.async = true;
-    captureScript.defer = true;
-    captureScript.setAttribute("data-utmify-prevent-xcod-sck", "");
-    captureScript.setAttribute("data-utmify-prevent-subids", "");
-    document.head.appendChild(captureScript);
     }
   }, []);
 
