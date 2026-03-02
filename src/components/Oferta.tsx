@@ -1,7 +1,8 @@
 import logoFallback from "@/assets/logo-new.png";
 
 const logoSrc = import.meta.env.VITE_LOGO_URL || logoFallback;
-const checkoutUrl = import.meta.env.VITE_CHECKOUT_URL || "https://payfast.greenn.com.br/d542hpu";
+const rawCheckoutUrl = import.meta.env.VITE_CHECKOUT_URL || "https://payfast.greenn.com.br/d542hpu";
+const checkoutUrl = rawCheckoutUrl.split('?')[0];
 
 const Oferta = () => {
   return <section id="oferta" className="py-12 md:py-16 bg-primary animate-fade-in-up">
